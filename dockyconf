@@ -9,6 +9,12 @@
 #
 #########################
 
+function restartDocky() {
+    killall "docky"
+    docky &>/dev/null &
+}
+
+
 	# Dock display location change
 	if [[ $1 = "move" ]]; then
 		if [[ $2 = "" ]] || [[ $3 = "" ]]; then
@@ -61,3 +67,4 @@
 
 		exit 0;
 	fi
+
