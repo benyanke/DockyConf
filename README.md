@@ -1,6 +1,6 @@
 # DockyConf
  
-Simple bash setting modification script for Docky on Ubuntu. Add to your $PATH and quickly change docky settings. Still a work in progress.
+Simple bash setting modification script for Docky on Ubuntu. Add to your $PATH and quickly change docky settings. Still a work in progress. Works by making calls to gconftool-2.
 
 ## Current Features
 * lock - Lock icons so that they can't be accidentally dragged
