@@ -13,7 +13,7 @@
 	if [[ $1 = "move" ]]; then
 		if [[ $2 = "" ]] || [[ $3 = "" ]]; then
 			echo "Need to specify a dock and display number.";
-			return 1;
+			exit 1;
 		fi
 
 		dockNumb=$2
@@ -26,16 +26,16 @@
 		gconftool-2 --set "$settingPath" --type $settingValType "$settingVal"
 
 		restartDocky
-		return 0;
+		exit 0;
 
 	# Enable/disable icon drag locking
 	elif [[ $1 = "lock" ]]; then
 		if [[ $2 = "" ]]; then
 			echo "Need to specify a setting [0 = unlock / 1 = lock].";
-			return 1;
+			exit 1;
 		elif [[ $2 -ne "0" ]] && [[ $2 -ne "1" ]]; then
 			echo "Please specify either 0 or 1.";
-			return 1;
+			exit 1;
 		fi
 
 		lockDrag=$2
@@ -47,14 +47,17 @@
 		gconftool-2 --set "$settingPath" --type $settingValType "$settingVal"
 
 		restartDocky
-		return 0;
+		exit 0;
 
 	else
 		echo -e "#########\nDockyConf\n#########\n";
 		echo -e "Settings which can be changed:\n";
+
 		echo -e "* Change dock location:";
 		echo -e "\tdockyconf move [dock #] [monitor #]\n\n";
 
 		echo -e "* Lock icons from dragging:";
 		echo -e "\tdockyconf lock [0 = don't lock | 1 = lock]\n\n";
+
+		exit 0;
 	fi
