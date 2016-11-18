@@ -34,3 +34,8 @@ dockyconf movemon 2 0
 ```bash
 dockyconf movepos 1 top
 ```
+
+**Restart Docky**
+```bash
+dockyconf restart
+```
