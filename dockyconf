@@ -74,6 +74,13 @@ function restartDocky() {
 		restartDocky
 		exit 0;
 
+
+	# Restart docky
+	elif [[ $1 = "restart" ]]; then
+
+		restartDocky
+		exit 0;
+
 	else
 		echo -e "#########\nDockyConf\n#########\n";
 		echo -e "Settings which can be changed:\n";
@@ -86,6 +93,9 @@ function restartDocky() {
 
 		echo -e "* Lock icons from dragging:";
 		echo -e "\tdockyconf lock [0 = don't lock | 1 = lock]\n\n";
+
+		echo -e "* Restart Docky:";
+		echo -e "\tdockyconf restart\n\n";
 
 		exit 0;
 	fi
